@@ -93,84 +93,78 @@ public class TransitionInYawl extends TransitionFigure {
 		org.eclipse.draw2d.geometry.Rectangle rectangle = this.getClientArea();
 		int cx = rectangle.x + rectangle.width / 2;
 		int cy = rectangle.y + rectangle.height / 2;
-		
+		int width = rectangle.width;
+		int height = rectangle.height;
+		int offSetX = width/5;
 		if (transition instanceof Transition) {
-			// transitionType = ((Transition) transition).getTypeOfJoin();
-			// graphics.setLineWidth(2);
-			// if (transitionType != null) {
 
+			graphics.drawLine(new Point(cx-offSetX/2,rectangle.getTopLeft().y), 
+					new Point(cx-offSetX/2,rectangle.getBottomLeft().y));
+			graphics.setBackgroundColor(getForegroundColor());
 			if (jointype == Type.AND) {
-				graphics.setBackgroundColor(getForegroundColor());
+
+				
 				// Set up AND join figure
-				PointList points = new PointList();
-				points.addPoint(new Point(cx - 20, cy + 20));
-				points.addPoint(new Point(cx, cy));
-				points.addPoint(new Point(cx - 20, cy - 20));
-				// Draw the triangle figure
-				graphics.drawPolygon(points);
-				// Draw the vertical line in center
-				graphics.drawLine(new Point(cx, cy + 20), new Point(cx, cy - 20));
+				
+				int[] cornerPoints = {rectangle.getTopLeft().x(),rectangle.getTopLeft().y(),
+						cx-offSetX/2,cy,
+						rectangle.getBottomLeft().x(),rectangle.getBottomLeft().y()};
+				graphics.drawPolygon(cornerPoints);
+				graphics.drawPolygon(cornerPoints);
+				
+
 			} else if (jointype == Type.OR) {
-				graphics.setBackgroundColor(getForegroundColor());
 				// Set up OR split figure
-				PointList points = new PointList();
-				points.addPoint(new Point(cx - 20, cy));
-				points.addPoint(new Point(cx - 10, cy + 20));
-				points.addPoint(new Point(cx, cy));
-				points.addPoint(new Point(cx - 10, cy - 20));
-				// Draw the triangle figure
-				graphics.drawPolygon(points);
-				// Draw the vertical line in center
-				graphics.drawLine(new Point(cx, cy + 20), new Point(cx, cy - 20));
+				
+				int[] cornerPoints1 = {rectangle.getTopLeft().x(), cy,
+						rectangle.x+offSetX, rectangle.getTopLeft().y(),
+						cx-offSetX/2, cy,
+						rectangle.x+offSetX, rectangle.getBottomLeft().y()};
+				graphics.drawPolygon(cornerPoints1);
+				
 			} else if (jointype == Type.XOR) {
-				graphics.setBackgroundColor(getForegroundColor());
+
 				// Set up XOR join figure
-				PointList points = new PointList();
-				points.addPoint(new Point(cx, cy + 20));
-				points.addPoint(new Point(cx - 20, cy));
-				points.addPoint(new Point(cx, cy - 20));
-				// Draw the figure
-				graphics.drawPolygon(points);
+				
+				int[] cornerPoints2 = {cx-offSetX/2,rectangle.getTopLeft().y(),
+						rectangle.getTopLeft().x(),cy,
+						cx-offSetX/2,rectangle.getBottomLeft().y()};
+				graphics.drawPolygon(cornerPoints2);
+				
+				
+
 			}
-			// }
+		
 
-			// transitionType = (TypeOfTransition) ((Transition)
-			// transition).getTypeOfSplit();
-			// if (transitionType != null) {
-
+			graphics.drawLine(new Point(cx+offSetX/2,rectangle.getTopLeft().y), 	
+					new Point(cx+offSetX/2,rectangle.getBottomLeft().y));
+			
 			if (splittype == Type.AND) {
-				graphics.setBackgroundColor(getForegroundColor());
 				// Set up AND split figure
-				PointList points = new PointList();
-				points.addPoint(new Point(cx, cy));
-				points.addPoint(new Point(cx + 20, cy + 20));
-				points.addPoint(new Point(cx + 20, cy - 20));
-				// Draw the triangle figure
-				graphics.drawPolygon(points);
-				// Draw the vertical line in center
-				graphics.drawLine(new Point(cx, cy + 20), new Point(cx, cy - 20));
-			} else if (splittype == Type.OR) {
-				graphics.setBackgroundColor(getForegroundColor());
-				// Set up OR join figure
-				PointList points = new PointList();
-				points.addPoint(new Point(cx, cy));
-				points.addPoint(new Point(cx + 10, cy + 20));
-				points.addPoint(new Point(cx + 20, cy));
-				points.addPoint(new Point(cx + 10, cy - 20));
-				// Draw the triangle figure
-				graphics.drawPolygon(points);
-				// Draw the vertical line in center
-				graphics.drawLine(new Point(cx, cy + 20), new Point(cx, cy - 20));
-			} else if (splittype == Type.XOR) {
-				graphics.setBackgroundColor(getForegroundColor());
-				// Set up XOR split figure
-				PointList points = new PointList();
-				points.addPoint(new Point(cx, cy - 20));
-				points.addPoint(new Point(cx + 20, cy));
-				points.addPoint(new Point(cx, cy + 20));
+				
+				int[] cornerPoints = {rectangle.getTopRight().x(),rectangle.getTopRight().y(),
+						cx+offSetX/2,cy,
+						rectangle.getBottomRight().x(),rectangle.getBottomRight().y()};
+				graphics.drawPolygon(cornerPoints);
+				
 
-				// Draw the figure
-				graphics.drawPolygon(points);
+			} else if (splittype == Type.OR) {
+				// Set up OR join figure
+				
+				int[] cornerPoints1 = {rectangle.getTopRight().x(), cy,
+						rectangle.x+width-offSetX, rectangle.getTopRight().y(),
+						cx+offSetX/2, cy,
+						rectangle.x+width-offSetX, rectangle.getBottomRight().y()};
+				graphics.drawPolygon(cornerPoints1);
+			} else if (splittype == Type.XOR) {
+				
+				// Set up XOR split figure
+				int[] cornerPoints2 = {cx+offSetX/2,rectangle.getTopRight().y(),
+						rectangle.getBottomRight().x,cy,
+						cx+offSetX/2,rectangle.getBottomRight().y()};
+				graphics.drawPolygon(cornerPoints2);
+				
+
 			}
 
 		}
