@@ -25,7 +25,7 @@ import yawl.TypeOfTransition;
 
 public class TransitionInYawl extends TransitionFigure {
 	private enum Type {
-		AND, XOR, OR
+		AND, XOR, OR, SINGLE
 	}
 
 	private Type splittype;
@@ -64,6 +64,8 @@ public class TransitionInYawl extends TransitionFigure {
 					return Type.OR;
 				case XOR:
 					return Type.XOR;
+				case SINGLE:
+					return Type.SINGLE;
 				}
 			}
 		}
@@ -82,6 +84,8 @@ public class TransitionInYawl extends TransitionFigure {
 				return Type.OR;
 			case XOR:
 				return Type.XOR;
+			case SINGLE:
+				return Type.SINGLE;
 			}
 		}
 		return Type.AND;
@@ -133,6 +137,14 @@ public class TransitionInYawl extends TransitionFigure {
 				
 				
 
+			} else if (jointype == Type.SINGLE) {
+
+				// Set up SINGLE join figure
+				
+				int[] cornerPoints2 = null;
+				
+				
+
 			}
 		
 
@@ -163,6 +175,14 @@ public class TransitionInYawl extends TransitionFigure {
 						rectangle.getBottomRight().x,cy,
 						cx+offSetX/2,rectangle.getBottomRight().y()};
 				graphics.drawPolygon(cornerPoints2);
+				
+
+			} else if (jointype == Type.SINGLE) {
+
+				// Set up SINGLE split figure
+				
+				int[] cornerPoints2 = null;
+				
 				
 
 			}
