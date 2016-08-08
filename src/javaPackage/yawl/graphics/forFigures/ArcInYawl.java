@@ -6,6 +6,7 @@ package javaPackage.yawl.graphics.forFigures;
 import org.eclipse.swt.SWT;
 import org.pnml.tools.epnk.gmf.extensions.graphics.figures.ArcFigure;
 
+import javaPackage.yawl.graphics.forDecoration.ResetHeadOfArcForDecoration;
 import yawl.Arc;
 import yawl.TypeOfA;
 import yawl.TypeOfArc;
@@ -45,6 +46,9 @@ public class ArcInYawl extends ArcFigure
 			
 		} else {
 			this.setLineStyle(SWT.LINE_DASH);
+			ResetHeadOfArcForDecoration targetDecor = new ResetHeadOfArcForDecoration();
+			this.setTargetDecoration(targetDecor);
+			
 		}
 		
 	}
