@@ -106,20 +106,14 @@ public class TransitionInYawl extends TransitionFigure {
 					new Point(cx-offSetX/2,rectangle.getBottomLeft().y));
 			graphics.setBackgroundColor(getForegroundColor());
 			if (jointype == Type.AND) {
-
-				
 				// Set up AND join figure
-				
 				int[] cornerPoints = {rectangle.getTopLeft().x(),rectangle.getTopLeft().y(),
 						cx-offSetX/2,cy,
 						rectangle.getBottomLeft().x(),rectangle.getBottomLeft().y()};
 				graphics.drawPolygon(cornerPoints);
 				graphics.drawPolygon(cornerPoints);
-				
-
 			} else if (jointype == Type.OR) {
 				// Set up OR split figure
-				
 				int[] cornerPoints1 = {rectangle.getTopLeft().x(), cy,
 						rectangle.x+offSetX, rectangle.getTopLeft().y(),
 						cx-offSetX/2, cy,
@@ -127,24 +121,13 @@ public class TransitionInYawl extends TransitionFigure {
 				graphics.drawPolygon(cornerPoints1);
 				
 			} else if (jointype == Type.XOR) {
-
 				// Set up XOR join figure
-				
 				int[] cornerPoints2 = {cx-offSetX/2,rectangle.getTopLeft().y(),
 						rectangle.getTopLeft().x(),cy,
 						cx-offSetX/2,rectangle.getBottomLeft().y()};
 				graphics.drawPolygon(cornerPoints2);
-				
-				
-
 			} else if (jointype == Type.SINGLE) {
-
 				// Set up SINGLE join figure
-				
-				int[] cornerPoints2 = null;
-				
-				
-
 			}
 			graphics.drawLine(new Point(cx+offSetX/2,rectangle.getTopLeft().y), 	
 					new Point(cx+offSetX/2,rectangle.getBottomLeft().y));
@@ -156,33 +139,21 @@ public class TransitionInYawl extends TransitionFigure {
 						cx+offSetX/2,cy,
 						rectangle.getBottomRight().x(),rectangle.getBottomRight().y()};
 				graphics.drawPolygon(cornerPoints);
-				
-
 			} else if (splittype == Type.OR) {
 				// Set up OR join figure
-				
 				int[] cornerPoints1 = {rectangle.getTopRight().x(), cy,
 						rectangle.x+width-offSetX, rectangle.getTopRight().y(),
 						cx+offSetX/2, cy,
 						rectangle.x+width-offSetX, rectangle.getBottomRight().y()};
 				graphics.drawPolygon(cornerPoints1);
 			} else if (splittype == Type.XOR) {
-				
 				// Set up XOR split figure
 				int[] cornerPoints2 = {cx+offSetX/2,rectangle.getTopRight().y(),
 						rectangle.getBottomRight().x,cy,
 						cx+offSetX/2,rectangle.getBottomRight().y()};
 				graphics.drawPolygon(cornerPoints2);
-				
-
 			} else if (jointype == Type.SINGLE) {
-
 				// Set up SINGLE split figure
-				
-				int[] cornerPoints2 = null;
-				
-				
-
 			}
 
 		}
