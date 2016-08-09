@@ -1,6 +1,3 @@
-/**
- * 
- */
 package javaPackage.yawl.graphics.forFigures;
 
 import java.util.ArrayList;
@@ -16,14 +13,17 @@ import org.pnml.tools.epnk.pnmlcoremodel.Transition;
 
 import yawl.YawlPackage;
 
-
-
+/**
+ * 
+ * @author Martin
+ * @author Konstantin
+ *
+ */
 public class GraphicsInYawl extends GraphicalExtension {
 
 	public GraphicsInYawl() {
 		super();
 	}
-	// TODO Auto-generated constructor stub }
 
 	@Override
 	public List<EClass> getExtendedNetTypes() {
@@ -44,14 +44,6 @@ public class GraphicsInYawl extends GraphicalExtension {
 		return list;
 	}
 
-	/*
-	 * The method createArcFigure() should return a new instance of the
-	 * ArcFigure you implemented in the previous step (with the current arc as
-	 * its parameter to the constructor).
-	 *
-	 * @see org.pnml.tools.epnk.gmf.extensions.graphics.GraphicalExtension#
-	 * createArcFigure(org.pnml.tools.epnk.pnmlcoremodel.Arc)
-	 */
 	@Override
 	public ArcFigure createArcFigure(Arc arc) {
 		if (arc instanceof yawl.Arc) {

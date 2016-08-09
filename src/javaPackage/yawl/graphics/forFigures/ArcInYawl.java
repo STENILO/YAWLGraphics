@@ -13,7 +13,12 @@ import yawl.TypeOfArc;
 
 
 
-
+/**
+ * 
+ * @author Konstantin
+ * @author Martin
+ * 
+ */
 
 public class ArcInYawl extends ArcFigure 
 {

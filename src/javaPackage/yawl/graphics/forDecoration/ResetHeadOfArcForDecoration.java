@@ -3,15 +3,16 @@
  */
 package javaPackage.yawl.graphics.forDecoration;
 
-import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.PolygonDecoration;
-import org.eclipse.draw2d.RectangleFigure;
-import org.eclipse.draw2d.RotatableDecoration;
-import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PointList;
 import org.eclipse.draw2d.geometry.Rectangle;
 
-
+/**
+ * 
+ * @author Martin
+ * @author Thomas
+ *
+ */
 public class ResetHeadOfArcForDecoration extends PolygonDecoration
 {
 private static final PointList ARROW = new PointList();

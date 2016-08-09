@@ -146,8 +146,6 @@ public class TransitionInYawl extends TransitionFigure {
 				
 
 			}
-		
-
 			graphics.drawLine(new Point(cx+offSetX/2,rectangle.getTopLeft().y), 	
 					new Point(cx+offSetX/2,rectangle.getBottomLeft().y));
 			
