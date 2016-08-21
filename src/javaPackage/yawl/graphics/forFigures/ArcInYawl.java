@@ -4,6 +4,7 @@
 package javaPackage.yawl.graphics.forFigures;
 
 import org.eclipse.swt.SWT;
+import org.pnml.tools.epnk.gmf.extensions.graphics.decorations.ArrowHeadDecoration;
 import org.pnml.tools.epnk.gmf.extensions.graphics.figures.ArcFigure;
 
 import javaPackage.yawl.graphics.forDecoration.ResetHeadOfArcForDecoration;
@@ -43,12 +44,17 @@ public class ArcInYawl extends ArcFigure
 			setGraphics();
 		}
 	}
-
+	/*
+	 * Here the grapgics for arcs is set, on the event of not NORMAL it would be a reset arc and so a
+	 * different head decoration is set to our ResetHeadOfArcForDecoration.
+	 */
 	
 	private void setGraphics() {
 		if (type == Type.NORMAL) {
 			this.setLineStyle(SWT.LINE_SOLID);
-		this.setTargetDecoration(this.getTargetDecoration());
+			ArrowHeadDecoration df = new ArrowHeadDecoration();
+			df.setLineWidth(1);
+			this.setTargetDecoration(df);
 			
 		} else {
 			this.setLineStyle(SWT.LINE_DASH);
