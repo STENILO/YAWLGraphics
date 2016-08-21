@@ -48,6 +48,7 @@ public class ArcInYawl extends ArcFigure
 	private void setGraphics() {
 		if (type == Type.NORMAL) {
 			this.setLineStyle(SWT.LINE_SOLID);
+		this.setTargetDecoration(this.getTargetDecoration());
 			
 		} else {
 			this.setLineStyle(SWT.LINE_DASH);
